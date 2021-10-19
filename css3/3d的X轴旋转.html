@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            width: 300px;
+            height: 226px;
+            margin: 200px auto;
+            perspective: 110px;/*透视：加给变换的父盒子，并不是真的3d */
+        }
+        #app img{
+            transition: transform 2s;
+        }
+        #app:hover img{
+            transform: rotateX(360deg);/*3d的X轴旋转效果*/
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img src="https://img0.baidu.com/it/u=3900563678,2085476855&fm=26&fmt=auto" alt="">
+    </div>
+</body>
+</html>

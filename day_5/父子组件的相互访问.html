@@ -1,0 +1,40 @@
+	<div id="app">
+        <button @click="childInfo">获取局部组件的数据</button>
+        <local ref="mylocal"></local>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <template id="template">
+        <button @click="parentInfo">获取父组件的数据</button>
+    </template>
+    <script>
+        //子组件声明
+        var local = {
+            data(){
+                return {
+                    msg: '局部子组件'
+                }
+            },
+            methods:{
+                parentInfo(){
+                    console.log(this.$parent.message);
+                    console.log(this.$root.message);
+                }
+            },
+            template:`#template`
+        }
+         var app = Vue.createApp({
+            data(){
+                return {
+                    message: '父组件'
+                }
+            },
+            methods:{ 
+                childInfo(){
+                    console.log(this.$refs.mylocal.msg);
+                    }
+            },
+            components:{
+                'local':local
+            }
+        }).mount("#app");
+    </script>

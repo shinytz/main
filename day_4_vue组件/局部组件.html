@@ -1,0 +1,47 @@
+	<div id="app">
+        <h2>{{message}}</h2>
+        <hr/>
+        <localcom/>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!--组件标签化：使用script方式-->
+    <script id="local">
+        <button @click="change">改变</button>
+        <p>{{msg}}</p>
+    </script>
+    <!--使用template-->
+    <template id="localTemplate">
+        <button @click="change">改变</button>
+        <p>{{msg}}</p>
+    </template>
+    <script>
+        const localComponent = {
+            data(){
+                return {
+                    msg: '局部组件'
+                }
+            }, 
+            template:'#localTemplate',//引用定义的script或template片段
+            methods:{ 
+                change(){
+                    this.msg = "！！！真的是局部组件！！！";
+                }
+            }
+        }
+        var paramObj = {
+            data(){
+                return{
+                    message:'测试'
+                }
+            },
+            methods:{
+
+            },
+            components:{//局部组件声明
+                'localcom':localComponent
+            }
+        };
+
+         var vm = Vue.createApp(paramObj);
+         vm.mount("#app");
+    </script>

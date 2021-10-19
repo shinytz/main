@@ -1,0 +1,33 @@
+	<div id="app">
+        <div @click="outerClick()">
+                <!--获取事件对象，手动处理冒泡-->
+                <button @click="innerClick($event)">内部button1</button>
+                <!--使用Vue属性处理冒泡-->
+                <button  @click.stop="innerClick2">内部button2</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ 
+                outerClick(){
+                    console.log('outerClick---');
+                    
+                },
+                innerClick(event){
+                    event.stopPropagation();//阻止事件冒泡
+                    console.log('innerClick---');
+                    
+                },
+                innerClick2(){
+                    console.log('innerClick2---');
+                    
+                }
+            }
+        }).mount("#app");
+    </script>

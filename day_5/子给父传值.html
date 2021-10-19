@@ -1,0 +1,41 @@
+<div id="app">
+    <h2>{{message}}</h2>
+    <local @child-click="invokeParent"></local>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<template id="template">
+    <button @click="btnClick">点击触发父组件方法</button>
+</template>
+<script>
+    //局部组件声明
+    const local = {
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+            btnClick() {
+                //触发子组件上被注册的自定义事件
+                this.$emit('child-click',{name:'蔡徐坤',age:23});
+            }
+        },
+        template: `#template`
+    }
+    var app = Vue.createApp({
+        data() {
+            return {
+                message: '测试'
+            }
+        },
+        methods: {
+            invokeParent(obj) {
+                console.log('---父组件方法被触发---传递的数据是：'+obj.name+obj.age+'岁');
+
+            }
+        },
+        components:{//局部组件注册
+            'local':local
+        }
+    }).mount("#app");
+</script>

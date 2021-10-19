@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            perspective: 1000px; /*给box的父元素加透视效果*/
+        }
+        #app{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            transition: all 1s;
+            margin: 200px auto;
+        }
+        #app:hover{
+            transform: translateZ(-100px); /*translateZ必须配合透视来使用*/
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>

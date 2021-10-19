@@ -1,0 +1,46 @@
+	<div id="app">
+        <div v-show="isShow">
+            姓名：<input type="text" v-focus="msg"><br/>
+        </div>
+        <button @click="change">改变</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const localDirective = {
+            focus:{
+                created() {
+                    console.log('created()');
+                },
+                beforeMount() {
+                    console.log('beforeMount()');
+                },
+                mounted(el, binding) {
+                    el.focus();
+                    console.log('mounted()');
+                    console.log('参数值：'+ binding.value);
+                },
+                beforeUpdate() {
+                    console.log('beforeUpdate()');
+                },
+                updated() {
+                    console.log('updated()');
+                },
+                beforeUnmount() {
+                    console.log('beforeUnmount()');
+                },
+                unmounted() {
+                    console.log('unmounted()');
+                },
+            }
+        }
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    isShow:true
+                }
+            },
+            methods:{ 
+            },
+            directives: localDirective
+        }).mount("#app");
+    </script>

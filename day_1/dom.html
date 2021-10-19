@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM添加内容</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        var appObj = document.getElementById('app');
+        //创建h2对象
+        var h2Obj = document.createElement('h2');
+        h2Obj.innerHTML = 'hello world';
+
+        appObj.appendChild(h2Obj);
+    </script>
+</body>
+</html>

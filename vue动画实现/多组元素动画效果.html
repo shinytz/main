@@ -1,0 +1,42 @@
+	<div id="app">
+        <!--mode表示过度模式-->
+        <transition mode="in-out" appear>
+            <div v-if="isShow">第一个div</div>
+            <div v-else>第二个div</div>
+        </transition>
+        <button @click="change">change</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var app = Vue.createApp({
+            data(){
+                return {
+                    isShow:true
+                }
+            },
+            methods:{ 
+                change(){
+                    this.isShow =!this.isShow;
+                }
+            }
+        }).mount("#app");
+    </script>
+    <style>
+        #app div{
+            height: 300px;
+            width: 300px;
+            background-color: gold;
+        }
+        .v-enter-from{
+            opacity: 0;
+        }
+        .v-enter-active,.v-leave-active{
+            transition: all 2s ease-in;
+        }
+        .v-enter-to{
+            opacity: 1;
+        }
+        .v-leave-to{
+            opacity: 0;
+        }
+    </style>

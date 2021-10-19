@@ -1,0 +1,28 @@
+	<div id="app">
+        <li v-for="item in persons">{{item.id+" "+item.name+" "+item.age}}</li>
+        <li v-for="(item,index) in persons">{{index+": "+item.id+" "+item.name+" "+item.age}}</li>
+        <li v-for="(item,key,index) in persons">{{index+": "+item+" "+key}}</li>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    persons:[
+                        {
+                            id:1,
+                            name:'蔡徐坤',
+                            age:23
+                        },
+                        {
+                            id:2,
+                            name:'何洛洛',
+                            age:20
+                        }
+                    ]
+                }
+            },
+            methods:{ 
+            }
+        }).mount("#app");
+    </script>

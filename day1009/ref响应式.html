@@ -1,0 +1,21 @@
+	<div id="app">
+        <div>
+            <p>{{msg}}</p>
+            <button @click="info">提示</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            setup(props) {
+                const {ref} = Vue;//引入ref
+                let msg = ref('hello cjh');//转换成响应式变量
+                const info = ()=>{
+                    alert(msg.value);//必须通过value属性获取响应式变量的值
+                }
+                return{
+                    msg,info //setup中声明的变量和方法必须return才能使用
+                }
+            }
+        }).mount("#app");
+    </script>

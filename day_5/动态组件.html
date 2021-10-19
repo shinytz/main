@@ -1,0 +1,43 @@
+<div id="app">
+    <h2>{{message}}</h2>
+    <button @click="change">切换</button>
+    <hr>
+    <!--keep-alive保存组件的状态-->
+    <keep-alive>
+        <component  :is="isShow"></component>
+    </keep-alive>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<template id="temp1">
+    <button>局部组件1</button>
+</template>
+<template id="temp2">
+    <input type="text">
+</template>
+<script>
+
+    const component1 = {
+        template: '#temp1'
+    }
+    const component2 = {
+        template: '#temp2'
+    }
+
+    var vm = Vue.createApp({
+        data() {
+            return {
+                message: '测试',
+                isShow: 'inputcom' //组件的名称
+            }
+        },
+        methods: {
+            change() {//重新给变量赋组件名
+                this.isShow = this.isShow === 'inputcom' ? 'buttoncom' : 'inputcom';
+            }
+        },
+        components: {
+            'buttoncom': component1,
+            'inputcom': component2
+        }
+    }).mount("#app");
+</script>

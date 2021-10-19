@@ -1,0 +1,47 @@
+	<div id="app">
+        <box1></box1>
+        <box2></box2>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        //mixin实现代码复用
+        var mixin = {
+            data(){
+                return {
+                    msg:'这是mixin属性'
+                }
+            },
+            methods:{ 
+                info(){
+                    console.log('~~mixin中方法提示~~');
+                }
+            }
+        }
+        var box1 = {
+            template:`
+                <h2>{{msg}}</h2>
+                <button @click="info">点击这里</button>
+            `,
+            mixins:[mixin]
+        }
+        var box2 = {
+            template:`
+                <p>{{msg}}</p>
+                <button @click="info">点击这里</button>
+            `,
+            mixins:[mixin]
+        }
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{
+            },
+            components:{
+                    box1:'box1',
+                    box2:'box2'
+                }
+        }).mount("#app");
+    </script>

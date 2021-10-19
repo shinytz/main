@@ -1,0 +1,20 @@
+	<div id="app">
+        <h2>{{message}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试',
+                    data1:10,
+                    data2:20
+                }
+            },
+            methods:{ 
+            },
+            comments:{
+                local:'local'
+            }
+        }).mount("#app");
+    </script>

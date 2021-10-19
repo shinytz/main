@@ -1,0 +1,57 @@
+	<div id="app">
+        <h2>搜索</h2>
+        <input type="text" placeholder="请输入姓名" v-model="searchStr">
+        <div>
+            <h2>排序：</h2>
+            <button @click="orderByType(1)">年龄升序</button><br/>
+            <button @click="orderByType(2)">年龄降序</button><br/>
+            <button @click="orderByType(0)">恢复默认</button><br/>
+            <ul>
+                <li v-for="(person,index) in persons">
+                    {{index+1}}:{{person.name}}--{{person.sex}}--{{person.age}}--{{person.phone}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    persons:[
+                        {'name':'蔡徐坤','sex':'男','age':23,'phone':'12345'},
+                        {'name':'蔡小葵','sex':'男','age':23,'phone':'12346'},
+                        {'name':'蔡猪咪','sex':'男','age':21,'phone':'12347'},
+                        {'name':'曾玉洁','sex':'女','age':20,'phone':'12348'},
+                        {'name':'何洛洛','sex':'男','age':18,'phone':'12349'},
+                    ]
+                }
+            },
+            methods:{ 
+                orderByType(orderByType){
+                    this.orderType = orderByType;
+                }
+            },
+            computed:{
+                filterPersons(){
+                    const {persons,searchStr,orderType}=this;
+                    let arr=[...persons];
+                    if(searchStr.trim()){
+                        arr = persons.filter((p)=>{
+                            return p.name.indexOf(searchStr)!==-1;
+                        });
+                    }
+                    if(orderType){
+                        arr.sort((p1,p2)=>{
+                            if(orderType===1){
+                                return p1.age - p2.age;
+                            }else{
+                                return p2.age - p1.age
+                            }
+                        });
+                    }
+                    return arr;
+                }
+            }
+        }).mount("#app");
+    </script>

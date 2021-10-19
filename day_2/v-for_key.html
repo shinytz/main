@@ -1,0 +1,39 @@
+	<div id="app">
+        <h2>新增：</h2>
+        <input type="text" placeholder="请输入编号" v-model="id"/>
+        <input type="text" placeholder="请输入姓名" v-model="name"/>
+        <button @click="add">添加</button>
+        <ul>
+            <!--头部添加或中间添加需要使用:key属性-->
+            <li v-for="person in persons" :key="person.id">
+                <input type="checkbox"/>
+                {{person.id}}--{{person.name}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    persons:[
+                        {'id':"1",'name':'蔡徐坤'},
+                        {'id':"2",'name':'蔡小葵'},
+                        {'id':"3",'name':'曾玉洁'},
+                        {'id':"4",'name':'何洛洛'},
+                        {'id':"5",'name':'蔡猪咪'},
+                        {'id':"6",'name':'陈家辉'},
+                    ],
+                    id:'',//v-model绑定
+                    name:''
+                }
+            },
+            methods:{ 
+                add(){
+                    //this.persons.unshift({id:this.id, name:this.name});//头部添加
+                    this.persons.push({id:this.id,name:this.name});//尾部添加，没有问题，是否绑定key没有关系
+                    //this.persons.splice(1,0,{id:this.id, name: this.name});//中间添加如在第二个添加
+                }
+            }
+        }).mount("#app");
+    </script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            width: 250px;
+            height: 250px;
+            margin: 100px;
+            background-color: gold;
+            animation: move1 2s;/*animation：动画名称 持续时间 执行次数 是否反向 运动曲线 延迟执行*/
+        }
+        @keyframes move1 {
+            from{
+                transform: translateX(0px) rotate(0deg);
+            }
+            to{
+                transform: translateX(500px) rotate(555deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+	<div id="app">
+        <h2 v-html="site"></h2>
+        <div v-html="intro"></div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    site: '<a href="http://www.baidu.com">百度</a>',
+                    intro: '<button>请点击</button>'
+                }
+            },
+            methods:{ 
+            }
+        }).mount("#app");
+    </script>

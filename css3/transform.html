@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #app{
+        width: 1000px;
+        margin: 100px auto;
+    }
+    #app div{
+        width: 300px;
+        height: 150px;
+        background-color: gold;
+        float: left;
+        margin-right: 15px;
+        color: white;
+        text-align: center;
+        font-kerning: 400 30px/150px "宋体"; 
+    }
+    #app #box2{
+        background-color: yellowgreen;
+        transition: all 1s;
+    }
+    #app #box2:hover{
+        background-color: violet;
+        transform: scale(2,0.5);/*给box2 设置2D转换，并不会把兄弟元素挤走*/
+    }
+</style>
+<body>
+    <div id="app">
+        <div></div>
+        <div id="box2"></div>
+        <div></div>
+    </div>
+</body>
+</html>

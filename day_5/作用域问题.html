@@ -1,0 +1,23 @@
+	<div id="app">
+        <h2>{{message}}</h2>
+        <button @click="info">父组件按钮</button>
+        <hr>
+        <local>
+            <button @click="info">插槽中的按钮</button>
+        </local>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var app = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ 
+            },
+            components:{
+                local:'local'
+            }
+        }).mount("#app");
+    </script>

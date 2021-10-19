@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gold;
+        }
+        #app{
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            position: relative;
+        }
+        #app > div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 50%;
+            transition: all 2s; /*在2秒内完成效果切换*/
+            backface-visibility: hidden;
+            border: 1px solid black;
+        }
+        #app #box1{
+            background: url(bg.png) left 0 no-repeat; /*默认显示图片的左半边*/
+        }
+        #app #box2{
+            background: url(bg.png) right 0 no-repeat;
+            transform: rotateY(180deg); /*让图片的右半边默认旋转180度，就可以暂时隐藏起来*/
+        }
+        #app:hover #box1{
+            transform: rotateY(180deg);
+        }
+        #app:hover #box2{
+            transform: rotateY(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="box1"></div>
+        <div id="box2"></div>
+    </div>
+</body>
+</html>

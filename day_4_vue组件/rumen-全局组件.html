@@ -1,0 +1,36 @@
+	<div id="app">
+        <h2>{{message}}</h2>
+        <hr/>
+        <counter></counter>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        var paramObj = {
+            data(){
+                return{
+                    message:'测试'
+                }
+            },
+            methods:{
+
+            }
+        };
+         var vm = Vue.createApp(paramObj);
+         vm.component('counter',{
+            data(){
+                return {
+                    counter:0
+                }
+            },
+            template:`
+            <button @click="incr">增加</button><br/>
+            <p>{{counter}}</p>
+            `,
+            methods:{ 
+                incr(){
+                    this.counter++;
+                }
+            }
+        });
+        vm.mount("#app");
+    </script>

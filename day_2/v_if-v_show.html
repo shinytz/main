@@ -1,0 +1,20 @@
+	<div id="app">
+        <!--通过元素节点是否存在控制显示-->
+        <div v-if="flag">这是v-if为true</div>
+        <div v-else>这是v-if为false</div>
+        <!--通过css属性控制元素是否可见-->
+        <div v-show="flag">这是v-show为true</div>
+        <div v-show="!flag">这是v-show为false</div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    flag: false
+                }
+            },
+            methods:{ 
+            }
+        }).mount("#app");
+    </script>

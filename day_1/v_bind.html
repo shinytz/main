@@ -1,0 +1,31 @@
+    <style>
+        .colorStyle{
+            color: gold;
+            
+        }
+        .sizeStyle{
+            font-size: 23px;
+        }
+    </style>
+    <div id="app">
+        <!--动态绑定属性-->
+        <img v-bind:src="imgUrl">
+        <!--动态绑定class   缩略写法-->
+        <p :class="colorStyle">绑定class文字</p>
+        <!--动态绑定style   对象方式绑定-->
+        <p :class="{sizeStyle:true,colorStyle:true}">对象方式绑定</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    imgUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0313%2F11928d13j00q738yh001dd000hs00bvp.jpg&refer=http%3A%2F%2Fdingyue.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634975547&t=57a5dcca8b607413ecae0693132593d2',
+                    colorStyle:'colorStyle',
+                    sizeStyle:'font-size'
+                }
+            },
+            methods:{ 
+            }
+        }).mount("#app");
+    </script>

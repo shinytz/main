@@ -1,0 +1,31 @@
+	<div id="app">
+        <h2>{{firstName+"."+lastName}}</h2>
+        
+        <h2>{{getFullName()}}</h2>
+        <h2>{{fullName}}</h2>
+        <p>年龄：</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    firstName:'徐坤',
+                    lastName:'蔡',
+                    age:18
+                }
+            },
+            methods:{ 
+                getFullName(){
+                    console.log('普通函数调用');
+                    return this.firstName+'.'+this.lastName;
+                }
+            },
+            computed:{
+                fullName(){
+                    console.log('计算属性调用');
+                    return this.firstName+'.'+this.lastName
+                }
+            }
+        }).mount("#app");
+    </script>

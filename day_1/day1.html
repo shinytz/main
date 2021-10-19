@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue_DAY1</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>{{msg}}</h2>
+        <script>
+            //参数对象 数据和方法定义
+            const paramObj = {
+                data(){
+                    return {
+                        msg:'hello world'
+                    }
+                }
+            }
+            //创建VUE对象，挂载到节点上（VUE只有数据，数据一改变，dom立刻发生改变）
+            const app = Vue.createApp(paramObj).mount('#app');
+        </script>
+    </div>
+</body>
+</html>

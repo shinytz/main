@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>集合循环处理</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in list">{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        const paramObj = {
+            data(){
+                return {
+                    list:['哈哈','蒙着眼','标签']
+                }
+            }
+        }
+        Vue.createApp(paramObj).mount('#app');
+    </script>
+</body>
+</html>

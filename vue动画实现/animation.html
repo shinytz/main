@@ -1,0 +1,41 @@
+	<div id="app">
+        <h2 :class="{animation:isAnimate}">Hello</h2>
+        <button @click="change">change</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var app = Vue.createApp({
+            data(){
+                return {
+                    isAnimate: true
+                }
+            },
+            methods:{ 
+                change(){
+                    this.isAnimate = !this.isAnimate;
+                }
+            }
+        }).mount("#app");
+    </script>
+    <style>
+        #app{
+            width: 300px;
+            height: 300px;
+            background-color: gold;
+        }
+
+        @keyframes move{
+            0%{
+                transform: translateX(0);
+            }
+            50%{
+                transform: translateX(200px);
+            }
+            100%{
+                transform: translateX(0);
+            }
+        }
+        .animation{
+            animation: move 2s linear infinite;/*动画定义*/
+        }
+    </style>

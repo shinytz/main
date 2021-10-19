@@ -1,0 +1,19 @@
+<div id="app">
+    <h2>{{msg}}</h2>
+    <button @click="info">点击</button>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    var vm = Vue.createApp({
+        //入口函数，定义变量  方法  计算属性等
+        setup(props) {
+            return {
+                msg: 'hello api',
+                info() {
+                    console.log('info() invoked~~~');
+
+                }
+            }
+        }
+    }).mount("#app");
+</script>

@@ -1,0 +1,49 @@
+	<div id="app">
+        {{message}}
+    <local>
+        <!--使用template-->
+        <template v-slot:sider>
+            <ul>
+                <li>haha</li><li>haha</li>
+                <li>haha</li><li>haha</li>
+            </ul>
+        </template>
+        <template v-slot:main>
+            用户名：<input type="text">
+            密码：<input type="password"><br/>
+            <button>登录</button>
+        </template>
+        <template v-slot:default>
+            <img src="https://img2.baidu.com/it/u=2233537291,3411438686&fm=26&fmt=auto" alt="">
+        </template>
+    </local>
+</div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <template id="template">
+        <div style="background-color: gold; width:20%;height:100px;float:left;">
+            <slot name="sider"></slot>
+        </div>
+        <div style="background-color: greenyellow; width:60%;height:100px;float:left;">
+            <slot name="main"></slot>
+        </div>
+        <div style="background-color: hotpink; width:20%;height:100px;float:left;">
+            <slot name=""></slot>
+        </div>
+    </template>
+    <script>
+        var local = {
+            template:'#template'
+        }
+         var app = Vue.createApp({
+            data(){
+                return {
+                    message: '多个slot需要替换'
+                }
+            },
+            methods:{ 
+            },
+            components:{
+                local:'local'
+            }
+        }).mount("#app");
+    </script>

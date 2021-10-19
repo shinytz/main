@@ -1,0 +1,29 @@
+	<div id="app">
+        <!--绑定的懒加载：回车键出发或失去焦点-->
+        <input type="text" name="" v-model.lazy="message">
+        <h2>{{message}}</h2>
+        <hr/>
+        <!--双向绑定的类型限制-->
+        年龄：
+        <input type="text" name="" v-model.number="msg">
+        <h2>{{msg}}---{{typeof msg}}</h2>
+        <hr>
+        <!--双向绑定的去除前后空格-->
+        名字：
+        <input type="text" name="" v-model.trim="tip">
+        <h2>{{tip}}---{{tip.length}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试',
+                    msg: 18,
+                    tip:''
+                }
+            },
+            methods:{ 
+            }
+        }).mount("#app");
+    </script>

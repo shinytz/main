@@ -1,0 +1,41 @@
+	<div id="app">
+        <h2>{{message}}</h2>
+        <local>
+            <p>dididi</p>
+            <ul>
+                <li>lalala</li>
+                <li>lalala</li>
+                <li>lalala</li>
+            </ul>
+        </local>
+        <template id="temp">
+            <!--占位符，由调用者传入具体的内容-->
+            <slot></slot>
+        </template> 
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        //局部组件声明
+        var local = {
+            data(){
+                return {
+                   
+                }
+            },
+            methods:{ 
+            },
+            template:`#temp`
+        }
+         var app = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ 
+            },
+            components:{
+                local:'local'
+            }
+        }).mount("#app");
+    </script>

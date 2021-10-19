@@ -1,0 +1,29 @@
+	<div id="app">
+        <transition mode="out-in" appear>
+            <component :is="componentId"></component>
+        </transition>
+        <button @click="change">change</button>
+    </div>
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        
+        const box1 = {
+            template: `<div>Box1局部组件</div>`
+        };
+        const box2 = {
+            template: `<div>Box2局部组件</div>`
+        };
+         var app = Vue.createApp({
+            data(){
+                return {
+                    component:'box1'
+                }
+            },
+            methods:{ 
+                change(){
+                    this.component = 'box1';
+                }
+            }
+        }).mount("#app");
+    </script>

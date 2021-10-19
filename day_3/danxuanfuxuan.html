@@ -1,0 +1,33 @@
+	<div id="app">
+        性别:
+        <input type="radio" name="sex" value="male" v-model="message">男
+        <input type="radio" name="sex" value="female" v-model="message">女
+        <h2>{{message}}</h2>
+
+        <label for="hobbies">爱好：</label>
+        <input type="checkbox" name="hobbies" value="basetball" v-model="msg">篮球
+        <input type="checkbox" name="hobbies" value="football" v-model="msg">足球
+        <input type="checkbox" name="hobbies" value="volleyball" v-model="msg">排球
+        <h2>{{msg}}</h2>
+
+        <hr/>
+        动态多选框：
+        <label v-for="name in names" :for="item">
+            <input type="checkbox" :value="name" :id="item" v-model="likes">{{name}}
+        </label>
+        <p>你的选择是：{{likes}}</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: 'female',
+                    msg:['football','volleyball'],
+                    names:['张三','李四','王麻子'],
+                }
+            },
+            methods:{ 
+            }
+        }).mount("#app");
+    </script>

@@ -1,0 +1,40 @@
+	<div id="app">
+        <h2>{{message}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ 
+            },
+                beforeCreate() {//vue对象被创建前
+                    console.log('vue对象被创建前beforeCreate()');
+                },
+                created() {//vue对象被创建后
+                    console.log('vue对象被创建后created()');
+                },
+                beforeMount() {//vue对象和实际节点挂载前
+                    console.log('vue对象和实际节点挂载前beforeMount');
+                },
+                mounted() {//成功挂载即vue中的内容渲染到实际的节点中
+                    console.log('成功挂载后mounted()');
+                },
+                beforeUpdate() {//数据发生变化前
+                    console.log('数据发生变化前：');
+                    console.log(document.getElementById('app').innerHTML);
+                },
+                updated() {//数据发生变化后
+                    console.log('数据发生变化后：');
+                    console.log(document.getElementById('app').innerHTML);
+                },
+                beforeUnmount() {
+                    console.log('数据发生变化后：');
+                    console.log(document.getElementById('app').innerHTML);
+                },
+                
+        }).mount("#app");
+    </script>

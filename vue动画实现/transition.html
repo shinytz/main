@@ -1,0 +1,36 @@
+	<div id="app">
+        <div class="transition" :class="{red:isRed,blue:isBlue}">过渡效果实现</div>
+        <button @click="change">change</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var app = Vue.createApp({
+            data(){
+                return {
+                    isRed:true,
+                    isBlue:false
+                }
+            },
+            methods:{ 
+                change(){
+                    this.isRed = !this.isRed;
+                    this.isBlue = !this.isBlue
+                }
+            }
+        }).mount("#app");
+    </script>
+    <style>
+        #app div{
+            width: 300px;
+            height: 300px;
+        }
+        .red{
+            background-color: gold;
+        }
+        .blue{
+            background-color: greenyellow;
+        }
+        .transition{
+            
+        }
+    </style>

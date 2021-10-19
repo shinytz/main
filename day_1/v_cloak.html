@@ -1,0 +1,21 @@
+    <style>
+        
+    </style>
+    <div id="app">
+        <h2 v-cloak>{{message}}</h2>
+        <h2>{{message}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         setTimeout(()=>{
+            var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ 
+            }
+        }).mount("#app");
+         },1000);
+    </script>

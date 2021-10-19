@@ -1,0 +1,39 @@
+	<div id="app">
+        <local>
+            <!--v-slot参数的值是slot绑定的所有参数对应的对象-->
+            <template v-slot="props">
+                <h2>{{props.mag}}</h2>
+                <li v-for="name in props.list">{{name}}</li>
+            </template>
+        </local>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <template id="temp">
+        <div style="width: 200px;height: 200px;background-color: gold;">
+            <!--属性绑定方式给调用方传参数数据-->
+            <slot :list="persons" :msg="msg"></slot>
+        </div>
+    </template>
+    <script>
+        var local = {
+            data(){
+                return {
+                    msg:'子组件信息',
+                    persons:['蔡徐坤','何洛洛']
+                }
+            },
+            template:'#temp'
+        }
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ 
+            },
+            comments:{
+                local:'local'
+            }
+        }).mount("#app");
+    </script>

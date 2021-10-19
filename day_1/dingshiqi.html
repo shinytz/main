@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        数字:{{counter}}<br/>
+        <button @click="stopTimer()">stop</button>
+    </div>
+    <script>
+        var paramObj = {
+            data() {
+                return {
+                    counter: 0,
+                    id: 0
+                }
+            },
+            methods:{
+               stopTimer(){
+                   clearInterval(this.id);
+               }
+            },
+            mounted() {//生命周期方法
+               this.id = setInterval((/*返回的参数*/) => {
+                this.counter++/*调用的方法*/
+                }, 1000);
+            }
+        }
+        const app = Vue.createApp(paramObj).mount('#app');
+    </script>
+</body>
+
+</html>

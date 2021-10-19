@@ -1,0 +1,33 @@
+	<div id="app">
+        <h2>自定义全局指令和局部指令</h2>
+        姓名：<input type="text" v-focus><br/>
+        年龄：<input type="text" v-change>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        //局部自定义命令
+        const localDirective = {
+            change:{
+                mounted(el) {
+                    el.style.backgroundColor = 'gold';
+                }
+            }
+        }
+
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ 
+            },
+            directives: localDirective//局部指令注册
+        });
+        vm.directive('focus',{//全局注册自定义指令
+            mounted(el) {
+               el.focus(); 
+            }
+        });
+        vm.mount("#app");
+    </script>

@@ -1,0 +1,19 @@
+	<div id="app">
+        <input type="text" v-model="message" @input="valueChange($event)">
+        <h2>{{message}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ 
+                valueChange(event){
+                    this.message=event.target.value;
+                }
+            }
+        }).mount("#app");
+    </script>

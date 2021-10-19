@@ -1,0 +1,46 @@
+	<div id="app">
+        <transition>
+            <h2 v-show="isShow">{{message}}</h2>
+        </transition>
+        <button @click="change">change</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var app = Vue.createApp({
+            data(){
+                return {
+                    message: '测试transition标签实现动画效果',
+                    isShow:true
+                }
+            },
+            methods:{
+                change(){
+                    this.isShow =!this.isShow;
+                } 
+            }
+        }).mount("#app");
+    </script>
+    <style>
+        #app h2{
+
+        }
+        /*进入效果，都是vue预定义的样式class*/
+        .v-enter-from{
+            opacity: 0;
+        }
+        .v-enter-active{
+            transition: all 2s ease-in;
+        }
+        .v-enter-to{
+            opacity: 1;
+        }
+        .v-leave-from{
+            opacity: 1;
+        }
+        .v-leave-active{
+            transition: all 2s ease-in;
+        }
+        .v-leave-to{
+            opacity: 0;
+        }
+    </style>

@@ -1,0 +1,20 @@
+	<div id="app">
+        <h2>{{message}}</h2>
+        <h2>{{count*6}}</h2>
+        <h2>{{message+' '+content}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        var paramObj = {
+            data(){
+                return {
+                    message: '测试',
+                    count:9,
+                    content:'VUE基础'
+                }
+            },
+            methods:{ 
+            }
+        }
+         var vm = Vue.createApp(paramObj).mount("#app");
+    </script>

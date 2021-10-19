@@ -1,0 +1,32 @@
+	<div id="app">
+        <button v-on:click="info1">全名写法</button><br/>
+        <!--on-click的缩略写法-->
+        <button @click="info2()">缩略写法</button><br/>
+        <button @click="info3('cxk','haha')">传递参数</button><br/>
+        <button @click="info3('cxk','haha'，$event)">传递参数和事件对象</button><br/>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ //定义方法
+                info1(){
+                    console.log('info1');
+                },
+                info2(){
+                    console.log('info2');
+                },
+                info2(){
+                    console.log(name+' '+pass);
+                    console.log(event);
+                    console.log(arguments.length);
+                    
+                    
+                }
+            }
+        }).mount("#app");
+    </script>

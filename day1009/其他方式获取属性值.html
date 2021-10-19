@@ -1,0 +1,33 @@
+	<div id="app">
+        <box></box>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const mixin = {
+            name:'test'
+        }
+        var box                 = {
+            data(){
+                return {
+                    name:'测试'
+                }
+            },
+            template:`
+                <h2>{{name}}</h2>
+                <h2>{{this.$options.name}}</h2>
+            `,
+           mixins:[mixin]
+        }
+         var vm = Vue.createApp({
+            data(){
+                return {
+                    message: '测试'
+                }
+            },
+            methods:{ 
+            },
+            components:{
+                box:'box'
+            }
+        }).mount("#app");
+    </script>
